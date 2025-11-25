@@ -1,0 +1,48 @@
+# -----------------------------------
+# 🚫 Carpetas que NO deben ir al build
+# -----------------------------------
+node_modules
+dist
+coverage
+tmp
+temp
+uploads
+.prisma
+
+# -----------------------------------
+# 🔧 Archivos generados
+# -----------------------------------
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# -----------------------------------
+# 🔐 Archivos sensibles
+# -----------------------------------
+.env
+.env.*
+*.local
+
+# -----------------------------------
+# 🧪 Configs de desarrollo
+# -----------------------------------
+.vscode
+.idea
+.DS_Store
+.eslintcache
+*.swp
+
+# -----------------------------------
+# 🐳 Docker
+# -----------------------------------
+docker-compose.yml
+Dockerfile*
+**/Dockerfile*
+
+# -----------------------------------
+# 🔨 Otros archivos innecesarios
+# -----------------------------------
+*.md
+*.log
+*.pid

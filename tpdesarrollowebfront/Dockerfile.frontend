@@ -1,0 +1,32 @@
+FROM node:20 AS build
+WORKDIR /app
+
+# Copiar dependencias e instalarlas
+COPY package*.json ./
+RUN npm install
+
+# Copiar el resto del código
+COPY . .
+
+# Ir a la carpeta del proyecto Angular
+WORKDIR /app/tpdesarrollowebfront
+
+# Compilar Angular (produce /app/dist/tpdesarrollowebfront/browser)
+RUN npm run build -- --configuration=production --output-path=/app/dist/tpdesarrollowebfront
+
+FROM nginx:alpine
+
+#  BORRAR configuración por defecto (evita el “Welcome to nginx”)
+RUN rm /etc/nginx/conf.d/default.conf
+
+#  Copiar tu configuración personalizada
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+#  Copiar el build Angular al directorio correcto
+COPY --from=build /app/dist/tpdesarrollowebfront/browser /usr/share/nginx/html/browser
+
+# Exponer el puerto 80
+EXPOSE 80
+
+#  Comando principal
+CMD ["nginx", "-g", "daemon off;"]

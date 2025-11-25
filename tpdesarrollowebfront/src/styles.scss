@@ -1,0 +1,72 @@
+//Global dark mode
+body {
+  background: #0d0221;
+  color: #d7d7e0;
+  font-family: 'Inter', sans-serif;
+}
+
+//Titulos
+h1, h2, h3 {
+  color: #ffffff;
+}
+
+//Cards
+.card, .page-container {
+  background: #220049;
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 0 12px rgba(123, 47, 247, 0.25);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+//Botones
+button {
+  background: #7b2ff7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: .55rem 1rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background: #9a42ff;
+  box-shadow: 0 0 10px #7b2ff7;
+}
+
+button:disabled {
+  background: #4a2d75;
+  opacity: 0.5;
+}
+
+//Tablas
+table {
+  width: 100%;
+  background: #220049;
+  color: #d7d7e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+thead {
+  background: rgba(255,255,255,0.08);
+}
+
+tbody tr:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+//Forms 
+input {
+  background: #170032;
+  border: 1px solid #7b2ff7;
+  padding: .6rem .8rem;
+  border-radius: 8px;
+  color: #fff;
+  outline: none;
+}
+
+input:focus {
+  box-shadow: 0 0 8px #7b2ff7;
+}

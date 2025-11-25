@@ -1,0 +1,66 @@
+<div class="login-page-wrapper">
+
+  <div class="login-container">
+    
+    <h2>Iniciar Sesión</h2>
+    
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      
+      <div class="form-group">
+        <label for="email">Email</label>
+        <div class="input-wrapper">
+          <input type="email" id="email" formControlName="email" placeholder="tu@email.com">
+          <i>👤</i>
+        </div>
+        @if (loginForm.get('email')?.touched && loginForm.get('email')?.hasError('required')) {
+          <small class="error-message">Por favor, ingrese un email.</small>
+        }
+         @if (loginForm.get('email')?.touched && loginForm.get('email')?.hasError('email')) {
+          <small class="error-message">Por favor, ingrese un email válido.</small>
+        }
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <div class="input-wrapper">
+          <input type="password" id="password" formControlName="password" placeholder="••••••••">
+          <i>🔒</i>
+        </div>
+        @if (loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')) {
+          <small class="error-message">La contraseña es requerida.</small>
+        }
+      </div>
+
+      <div class="form-options">
+        <div class="remember-me">
+          <input type="checkbox" id="remember">
+          <label for="remember">Recordarme</label>
+        </div>
+        <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+      </div>
+
+      @if (errorMessage) {
+        <div class="error-message global-error">
+          <p>{{ errorMessage }}</p>
+        </div>
+      }
+
+      <button type="submit" class="login-button" [disabled]="loginForm.invalid">Entrar</button>
+
+      <button 
+        type="button" 
+        class="login-button" 
+        style="margin-top: 10px; background: #444;" 
+        (click)="fakeLogin()"
+        >
+          Entrar sin login (DEV)
+        </button>
+
+      <div class="register-link">
+        <p>¿No tienes una cuenta?
+          <a (click)="goToRegister()">Regístrate aquí</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>
