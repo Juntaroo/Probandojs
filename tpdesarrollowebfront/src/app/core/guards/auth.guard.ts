@@ -9,10 +9,10 @@ export const authGuard: CanActivateFn = (route, state) => {
 
   // isAuthenticated() que revisa localStorage o una variable.
   if (authService.isAuthenticated()) {
-    return true; // Si está autenticado, déjalo pasar
+    return true; // Si está autenticado, pasa
   }
 
-  // Si no está autenticado, redirige al login
-  router.navigate(['/auth/login']); // O la ruta que tengas para tu login
+  //Si no está autenticado, redirige al login
+  router.navigate(['/auth/login']);
   return false; 
 };
