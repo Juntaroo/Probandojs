@@ -5,14 +5,14 @@ import { LayoutComponent } from './shared/components/layout/layout.component';
 import { authGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
-  // Auth (público)
+  //Auth publico
   {
     path: 'auth',
     loadChildren: () =>
       import('./features/auth/auth.module').then(m => m.AuthModule),
   },
 
-  // Rutas privadas
+  //Rutas privadas
   {
     path: '',
     component: LayoutComponent,
