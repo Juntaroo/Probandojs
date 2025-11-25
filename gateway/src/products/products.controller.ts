@@ -42,7 +42,7 @@ export class ProductsController {
     );
   }
 
-  // Listar productos (público o usuarios logueados)
+  //Listar productos
   @UseGuards(JwtAuthGuard)
   @Get()
   findAllProducts(@Query() pagination: PaginationDto) {

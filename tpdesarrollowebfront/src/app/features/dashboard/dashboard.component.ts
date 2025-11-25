@@ -36,7 +36,7 @@ export class DashboardComponent implements OnInit {
     this.cartService.getCartByUserToken().subscribe({
       next: (res) => {
         this.carts = res;
-        this.totalPrice = res.reduce((sum: number, c: any) => sum + (c.totalPrice || 0), 0);
+        this.totalPrice = res.reduce((sum: number, c: any) => sum + c.quantity, 0);
       },
       error: () => this.toastr.error('Error al obtener carritos')
     });

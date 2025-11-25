@@ -133,6 +133,15 @@ export class UsersService {
 
     return cartItem;
   }
+  async getUserCart(userId: string) {
+  return this.prisma.cartItem.findMany({
+    where: { userId },
+    include: {
+      product: true, //Trae detalles del producto
+    }
+  });
+}
+
 
   // Generar factura desde el carrito
   async checkoutCart(userId: string) {

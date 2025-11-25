@@ -14,26 +14,22 @@ export const environment = {
     },
 
    
-    users: `${$BASE_REST}/users`,
+    users: `${$BASE_REST}/usuarios`,
 
     
     products: {
-      all: `${$BASE_REST}/products`,
-      byId: (id: string | number) => `${$BASE_REST}/products/${id}`,
-      create: `${$BASE_REST}/products`,
-      update: (id: string | number) => `${$BASE_REST}/products/${id}`,
-      delete: (id: string | number) => `${$BASE_REST}/products/${id}`,
+      all: `${$BASE_REST}/productos`,
+      byId: (id: string | number) => `${$BASE_REST}/productos/${id}`,
+      create: `${$BASE_REST}/productos`,
+      update: (id: string | number) => `${$BASE_REST}/productos/${id}`,
+      delete: (id: string | number) => `${$BASE_REST}/productos/${id}`,
     },
 
     
     carts: {
-      all: `${$BASE_REST}/carts`,
-      byId: (id: string | number) => `${$BASE_REST}/carts/${id}`,
-      byUserId: (userId: string | number) => `${$BASE_REST}/carts/userCarts/${userId}`,
-      byUserToken: `${$BASE_REST}/carts/userCartsToken`,
-      create: `${$BASE_REST}/carts`,
-      update: (id: string | number) => `${$BASE_REST}/carts/${id}`,
-      delete: (id: string | number) => `${$BASE_REST}/carts/${id}`,
+        byUserToken: `${$BASE_REST}/usuarios/carrito`,   
+      create: `${$BASE_REST}/usuarios/carrito/agregar`,
+      checkout: `${$BASE_REST}/usuarios/carrito/checkout`,
     },
 
     

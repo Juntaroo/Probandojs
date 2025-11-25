@@ -21,7 +21,7 @@ import { CreateUserDto } from 'src/common/dtos/create-user-dto';
 import { UpdateUserDto } from 'src/common/dtos/update-user.dto';
 import { USERS_SERVICE } from 'src/configuration/constants';
 
-// Utilidad para limpiar errores 
+//Utilidad para limpiar errores 
 function normalizeError(err: any, defaultMessage: string) {
   const message = typeof err === 'string'
     ? err
@@ -34,7 +34,7 @@ function normalizeError(err: any, defaultMessage: string) {
   return new HttpException(message, status);
 }
 
-// --- Guard dinámico de roles ---
+//Guard dinámico de roles 
 export const RolesGuard = (requiredRoles: string[]) => {
   @Injectable()
   class RoleGuardMixin {
@@ -99,6 +99,21 @@ export class UsersController {
       catchError(err => throwError(() => normalizeError(err, 'Error al eliminar usuario'))),
     );
   }
+  @UseGuards(JwtAuthGuard)
+  @Get('carrito')
+  getCart(@Req() req) {
+    const userId = req.user.sub;
+
+    return this.userClient.send(
+      { cmd: 'get_user_cart' },
+      { userId }
+    ).pipe(
+      catchError(err => throwError(() =>
+        normalizeError(err, 'Error al obtener el carrito')
+      )),
+    );
+  }
+
 
   @UseGuards(JwtAuthGuard)
   @Post('carrito/agregar')
